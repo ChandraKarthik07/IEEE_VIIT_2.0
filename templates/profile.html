@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile_style.css' %}">
+
+    <title>IEEE | Testimonial</title>
+</head>
+<style>
+
+</style>
+<body>
+  {% include 'nav.html' %}
+
+  <section>
+    <center><h1>Executive Bodies</h1></center>
+    <div class="sec-card">
+        {% for executive in executive_bodies %}
+            <div class="box1 box">
+                <div class="content">
+                    <div class="image">
+                        <img src="{{ executive.image.url }}" alt="Profile Image">
+                    </div>
+                    <div class="level">
+                        <p>{{ executive.level }}</p>
+                    </div>
+                    <div class="text">
+                        <p class="name">{{ executive.name }}</p>
+                        <p class="job_title">{{ executive.role }}</p>
+                        <div class="icons">
+                            <a href="{{ executive.instagram_url }}">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                            <a href="{{ executive.twitter_url }}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            <a href="{{ executive.linkedin_url }}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            <a href="{{ executive.facebook_url }}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <center><h1>Operating Bodies</h1></center>
+    <div class="sec-card">
+        {% for operating in operating_bodies %}
+            <div class="box1 box">
+                <div class="content">
+                    <div class="image">
+                        <img src="{{ operating.image.url }}" alt="Profile Image">
+                    </div>
+                    <div class="level">
+                        <p>{{ operating.level }}</p>
+                    </div>
+                    <div class="text">
+                        <p class="name">{{ operating.name }}</p>
+                        <p class="job_title">{{ operating.role }}</p>
+                        <div class="icons">
+                            <a href="{{ operating.instagram_url }}">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                            <a href="{{ operating.twitter_url }}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            <a href="{{ operating.linkedin_url }}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            <a href="{{ operating.facebook_url }}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+    <center><h1>Faculty</h1></center>
+    <div class="sec-card">
+        {% for faculty_member in faculty_members %}
+            <div class="box1 box">
+                <div class="content">
+                    <div class="image">
+                        <img src="{{ faculty_member.image.url }}" alt="Profile Image">
+                    </div>
+                    <div class="level">
+                        <p>{{ faculty_member.level }}</p>
+                    </div>
+                    <div class="text">
+                        <p class="name">{{ faculty_member.name }}</p>
+                        <p class="job_title">{{ faculty_member.role }}</p>
+                        <div class="icons">
+                            <a href="{{ faculty_member.instagram_url }}">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                            <a href="{{ faculty_member.twitter_url }}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            <a href="{{ faculty_member.linkedin_url }}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            <a href="{{ faculty_member.facebook_url }}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+</body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
+</html>
