@@ -54,16 +54,26 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'User'
         verbose_name_plural = 'Users'
 
+
 class Event(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='event_images/')
-    date = models.DateField()
+    image_url = models.URLField(blank=True, null=True, default="")  # Default empty URL field
+
     description = models.TextField()
+    registration_fee = models.DecimalField(max_digits=6, decimal_places=2, default=0)  # Default registration fee is 0
+    prize_money = models.CharField(max_length=100, default="No Prize")  # Default prize is "No Prize"
+    mode = models.CharField(max_length=50, default="Online")  # Default mode is "Online"
+    start_date = models.DateField()
+    end_date = models.DateField()
+    start_time = models.TimeField(default="00:00:00")  # Default start time is midnight
+    end_time = models.TimeField(default="00:00:00")    # Default end time is midnight
+    team_size = models.PositiveIntegerField(default=1)  # Default team size is 1
 
     def __str__(self):
-        return f"{self.title} on {self.date}"
+        return f"{self.title} ({self.start_date} - {self.end_date})"
 
-from django.db import models
+
 
 # Constants for Committee Roles
 EXECUTIVE_ROLES = (
@@ -90,6 +100,8 @@ OPERATING_ROLES = (
 class ExecutiveBody(models.Model):
     name= models.CharField(max_length=100, unique=True)
     image = models.ImageField(upload_to='profiles/',default='profiles/default.jpg')
+    image_url = models.URLField(blank=True, null=True, default="")  # Default empty URL field
+
     level = models.IntegerField()
     role = models.CharField(max_length=50, choices=EXECUTIVE_ROLES)  # Use choices here
     description = models.TextField()
@@ -105,6 +117,8 @@ class ExecutiveBody(models.Model):
 class OperatingBody(models.Model):
     name= models.CharField(max_length=100, unique=True)
     image = models.ImageField(upload_to='profiles/',default='profiles/default.jpg')
+    image_url = models.URLField(blank=True, null=True, default="")  # Default empty URL field
+
     level = models.IntegerField()
     role = models.CharField(max_length=50, choices=OPERATING_ROLES)  # Use choices here
     description = models.TextField()
@@ -120,6 +134,8 @@ class OperatingBody(models.Model):
 class Faculty(models.Model):
     name= models.CharField(max_length=100, unique=True)
     image = models.ImageField(upload_to='profiles/',default='profiles/default.jpg')
+    image_url = models.URLField(blank=True, null=True, default="")  # Default empty URL field
+
     level = models.IntegerField()
     description = models.TextField()
     instagram_url = models.URLField(blank=True, null=True)

@@ -1,20 +1,25 @@
 <div class="events" id="event">
     <center>
-        <p>EVENTS</p>
+        <h1 style="color: black; font-size: 3vw;">EVENTS</h1>
     </center>
     <center>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 {% for event in events %}
                 <div class="swiper-slide">
-                    <div class="card">
-                        <img src="{{ event.image.url }}" alt="{{ event.title }}">
-                        <div class="des">
-                            <h4>{{ event.title }}</h4>
-                            <p>Date: {{ event.date }}</p>
-                            <p>Description: {{ event.description }}</p>
+                    <a href="{% url 'core:eventspage' event.id %}">
+                        <div class="card">
+                            {% if event.image %}
+                            <img src="{{ event.image.url }}">
+                        {% elif event.image_url %}
+                            <img src="{{ event.image_url }}">
+                        {% endif %}                            <div class="des">
+                                <h4>{{ event.title }}</h4>
+                                <p>Date: {{ event.start_date }} - {{ event.end_date}}</p>
+                                <p>Description: {{ event.description }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>

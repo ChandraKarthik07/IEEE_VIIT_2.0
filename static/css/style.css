@@ -243,7 +243,7 @@ h3 a{
 .events p{
     color: #00132B;
     font-weight: 700;
-    font-size: 3vw;
+    font-size: 0.8vw;
     
 }
 
@@ -275,6 +275,10 @@ h3 a{
     justify-content: center;
 } */
 
+.eve{
+    font-size: 5vw;
+}
+
 .des h4{
     /* margin: .5vw 2vw; */
     /* padding: .5vw;
@@ -289,8 +293,9 @@ h3 a{
     align-items: center;
     justify-content: center;
     color: black ;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 800;
+    margin-bottom: .5vw;
 }
 
 /* .des h1{
@@ -370,7 +375,11 @@ swiper-slide {
 img {
     max-width: 100%;
     height: auto;
+    aspect-ratio: 1/1;
 }
+
+
+
         section {
             padding: 60px 0;
            /* min-height: 100vh;*/
@@ -536,15 +545,74 @@ footer img {
   }
 
 
-@media screen and (max-width: 650px) {
 
+/* -----------------------------event section----------------------------------- */
+
+.eventsec{
+    display: grid;
+    grid-template-columns: 30% 80%;
+    margin: 8vw 10vw;
+    gap: 2vw;
+}
+
+.eventdet h1{
+    color: #00132B;
+}
+
+.eventdet p{
+    color: #353C46;
+    font-size: 1.7vw;
+    margin: 1vw 2vw;
+}
+
+.eventdet{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+}
+.eventdet button{
+    padding: 1vw;
+    font-size: 2vw;
+    background-color: #8b9199;
+    width: 80%;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+}
+
+.eventdes p{
+    color: #353C46;
+    font-size: 2.5vw;
+}
+.eventdes{
+    padding: 3vw;
+    margin: 0vw 4vw;
+    margin-bottom: 5vw;
+}
+
+.eventsec img{
+    border-radius: 10px;
+}
+
+.event-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+}
+
+
+
+
+@media screen and (max-width: 650px) {
     
     /* .menu{
         display: contents;
      } */
 
+
     .des h4{
-        font-size: 4%;
+        font-size: 4vw;
     }
 
     .logo h1{
@@ -689,6 +757,42 @@ footer img {
         margin: .5vw 0vw;
         font-size: 2vw;
     }
+
+    .eventsec{
+        display: flex;
+        flex-direction: column;
+
+        gap: 4vw;
+    }
+
+    
+    .eventdet {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    .event-card p{
+        font-size: 3vw;
+    }
+
+    .eventdet button {
+        padding: 1vw;
+        font-size: 3vw;
+        background-color: #8b9199;
+        width: 100%;
+        font-weight: 700;
+        border-radius: 5px;
+        margin: 2vw 0vw;
+        border: none;
+    }
+
+    .eventsec img {
+        border-radius: 10px;
+        width: 70%;
+        justify-content: center;
+    }
     
 }
 
@@ -748,3 +852,5 @@ footer img {
   
   
    */ 
+
+

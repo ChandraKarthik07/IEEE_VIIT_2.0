@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ event.title }}</title>
+</head>
+<body>
+  {% include 'nav.html' %}
+    <div class="eventsec">
+        
+        <center>{% if event.image %}
+            <img src="{{ event.image.url }}">
+        {% elif event.image_url %}
+            <img src="{{ event.image_url }}">
+        {% endif %}</center>
+        <div class="eventdet">
+            <h1>{{ event.title }}</h1>
+            <div class="event-card">
+                <div class="eventleft">
+                    <p>{{ event.start_date|date:"M d, Y" }} - {{ event.end_date|date:"M d, Y" }}</p>
+                    <p>{{event.mode}}</p>
+                    <p>Registration Fee: {{ event.registration_fee }}</p>
+                </div>
+                <div class="eventright">
+                    <p>{{ event.start_time|time:"h:i A" }} - {{ event.end_time|time:"h:i A" }}</p>
+                    <p>{{ event.prize_money }}</p>
+
+                    <p>Team Size: {{ event.team_size }} Member(s)</p>
+                    <!-- Add other fields here as needed -->
+                    
+                    
+                </div>
+            </div>
+            <button>Registration</button>
+        </div>
+    </div>
+    <div class="eventdes">
+        <p>{{ event.description }}</p>
+    </div>
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <center><h1 href="#">IEEE VIIT</h1></center>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum </p>
+                        <div class="hr"></div>
+                        <center>
+                            <h6>1120 Lorem ipsum dolor sit amet, KC 179050, Chandigarh.</h6>
+                            <h6>+01 2345 6789 12<span>|</span>+01 2345 6789 12</h6>
+                            <div class="contact-social">
+                                <ul>
+                                    <li><a class="hover-target" href=""><i class="bi bi-facebook"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="bi bi-github"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="bi bi-instagram"></i></a></li>
+                                    <li><a class="hover-target" href=""><i class="bi bi-medium"></i></a></li>
+                                </ul>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =============== 1.9 Contact Area End ====================-->
+    <!-- =============== 1.9 Footer Area Start ====================-->
+    <footer>
+        <p>&copy; {{ event.date.year }} EVENT NAME All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
